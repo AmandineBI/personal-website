@@ -47,10 +47,12 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    navigation: Navigation;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    navigation: NavigationSelect<false> | NavigationSelect<true>;
   };
   locale: null;
   user: User & {
@@ -1498,6 +1500,18 @@ export interface Header {
         id?: string | null;
       }[]
     | null;
+  styles?:
+    | {
+        cssLink?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  scripts?:
+    | {
+        jsLink?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1532,6 +1546,19 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation".
+ */
+export interface Navigation {
+  id: string;
+  menuItems: {
+    page: string | Page;
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -1547,6 +1574,18 @@ export interface HeaderSelect<T extends boolean = true> {
               url?: T;
               label?: T;
             };
+        id?: T;
+      };
+  styles?:
+    | T
+    | {
+        cssLink?: T;
+        id?: T;
+      };
+  scripts?:
+    | T
+    | {
+        jsLink?: T;
         id?: T;
       };
   updatedAt?: T;
@@ -1570,6 +1609,21 @@ export interface FooterSelect<T extends boolean = true> {
               url?: T;
               label?: T;
             };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "navigation_select".
+ */
+export interface NavigationSelect<T extends boolean = true> {
+  menuItems?:
+    | T
+    | {
+        page?: T;
         id?: T;
       };
   updatedAt?: T;

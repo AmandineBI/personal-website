@@ -25,6 +25,26 @@ export const Header: GlobalConfig = {
         },
       },
     },
+    {
+      name: 'styles',
+      type: 'array',
+      fields: [
+        {
+          name: 'cssLink',
+          type: 'text',
+        },
+      ],
+    },
+    {
+      name: 'scripts',
+      type: 'array',
+      fields: [
+        {
+          name: 'jsLink',
+          type: 'text',
+        },
+      ],
+    },
   ],
   hooks: {
     afterChange: [revalidateHeader],

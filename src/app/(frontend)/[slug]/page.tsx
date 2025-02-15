@@ -64,19 +64,24 @@ export default async function Page({ params: paramsPromise }: Args) {
   }
 
   const { hero, layout } = page
+  const page_title = page.title
 
-  return (
-    <article className="pt-16 pb-24">
-      <PageClient />
-      {/* Allows redirects for valid pages too */}
-      <PayloadRedirects disableNotFound url={url} />
+  if (page_title !== 'homepage') {
+    return (
+      <article className="pt-16 pb-24">
+        <PageClient />
+        {/* Allows redirects for valid pages too */}
+        <PayloadRedirects disableNotFound url={url} />
 
-      {draft && <LivePreviewListener />}
+        {draft && <LivePreviewListener />}
 
-      <RenderHero {...hero} />
-      <RenderBlocks blocks={layout} />
-    </article>
-  )
+        <RenderHero {...hero} />
+        <RenderBlocks blocks={layout} />
+      </article>
+    )
+  }
+  console.log('Page title is homepage')
+  return <RenderBlocks blocks={layout} />
 }
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {

@@ -16,12 +16,14 @@ export const StarsBlock: React.FC<Props> = ({ title }) => {
 
   return (
     <div
-      className="relative -mt-[10.4rem] flex items-center justify-center text-white"
+      className="relative -mt-[6.1rem] flex items-center justify-center text-white"
       data-theme="dark"
     >
       <div className="mx-auto my-0 w-full h-screen bg-red-700">
         <p>HELLO WORLD</p>
-        <p>{title}</p>
+        <p>Here {title}</p>
+        <p>Hellow here am I</p>
+        <p>This should be the title: {title}</p>
       </div>
     </div>
   )

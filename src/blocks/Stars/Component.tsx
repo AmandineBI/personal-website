@@ -51,11 +51,11 @@ export const StarsBlock: React.FC<Props> = ({ title }) => {
     const dirLight = new DirectionalLight(0xffffff, 1)
     dirLight.position.set(5, 5, 5)
     scene.add(dirLight)
-
+ 
     // Animation loop
     const animate = () => {
       requestAnimationFrame(animate)
-      stars.rotation.y += 0.005
+      stars.rotation.y += 0.00005
       renderer.render(scene, camera)
     }
     animate()
@@ -81,9 +81,6 @@ export const StarsBlock: React.FC<Props> = ({ title }) => {
       data-theme="dark"
     >
       <div ref={refContainer} className="absolute inset-0"></div>
-      <div className="relative z-10 mx-auto my-0 w-full h-screen flex items-center justify-center">
-        <h1 className="text-4xl font-bold">{title}</h1>
-      </div>
     </div>
   )
 }

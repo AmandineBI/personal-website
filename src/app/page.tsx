@@ -1,9 +1,9 @@
-import { StarsBlock } from "@/blocks/Stars/Component";
+import { StarsFieldComponent } from "@/components/StarsField";
 
 export default function HomePage() {
   return (
-    <main>
-      <StarsBlock title="Welcome to my site" />
+    <main className="flex-1 bg-black">
+      <StarsFieldComponent title={"Welcome"} />
     </main>
   )
 }

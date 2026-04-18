@@ -15,7 +15,7 @@ type Props = {
   title: string
 }
 
-export const StarsBlock: React.FC<Props> = ({ title }) => {
+export const StarsFieldComponent: React.FC<Props> = ({ title }) => {
   const refContainer = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -73,11 +73,9 @@ export const StarsBlock: React.FC<Props> = ({ title }) => {
   }, [])
 
   return (
-    <div
-      className="relative -mt-[6.1rem] flex items-center justify-center text-white"
-      data-theme="dark"
-    >
+    <div className="relative flex items-center justify-center text-white">
       <div ref={refContainer} className="absolute inset-0"></div>
+      <h1 className="text-4xl font-bold z-10">{title}</h1>
     </div>
   )
 }

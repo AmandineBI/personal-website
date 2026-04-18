@@ -105,11 +105,6 @@
   }
 }
 
-html {
+html:not([data-theme]) {
   opacity: 0;
-}
-
-html[data-theme='dark'],
-html[data-theme='light'] {
-  opacity: initial;
 }
